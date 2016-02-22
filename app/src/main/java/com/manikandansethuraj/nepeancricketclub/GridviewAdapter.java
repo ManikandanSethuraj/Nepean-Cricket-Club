@@ -1,8 +1,11 @@
 package com.manikandansethuraj.nepeancricketclub;
 
 import android.content.Context;
+import android.graphics.Point;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
@@ -42,18 +45,27 @@ public class GridviewAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView img;
+        WindowManager window = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = window.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+
         if (convertView == null){
             img = new ImageView(context);
             convertView = img;
-           // img.setPadding(5,5,5,5);
+            img.setScaleType(ImageView.ScaleType.FIT_XY);
+            img.setPadding(5, 5, 5, 5);
         }else {
             img = (ImageView) convertView;
+            img.setPadding(5,5,5,5);
         }
 
         Picasso.with(context)
                 .load(items[position])
                 .placeholder(R.drawable.load)
-                .resize(200,300)
+                .error(R.drawable.error)
+                .resize(200, 300)
                 .into(img);
         return convertView;
 

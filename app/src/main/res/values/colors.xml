@@ -7,4 +7,5 @@
     <color name="colorTitle">#FFFFFF</color>
     <color name="colorBackGround">#90A4AE</color>
     <color name="colorMoreName">#ff0004</color>
+    <color name="colorGalleryBGM">#060000</color>
 </resources>
