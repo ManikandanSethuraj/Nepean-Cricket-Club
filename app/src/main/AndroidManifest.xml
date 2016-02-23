@@ -47,17 +47,33 @@
             android:name=".MorePage"
             android:screenOrientation="sensorPortrait" >
         </activity>
-        <activity android:name=".SchedulePage" >
+        <activity android:name=".SchedulePage"
+            android:screenOrientation="sensorPortrait">
         </activity>
-        <activity android:name=".PlayersPage" >
+        <activity android:name=".PlayersPage"
+            android:screenOrientation="sensorPortrait"
+            android:label="NEPEAN CC - PLAYERS"
+            android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".OsclPage" >
+        <activity android:name=".OsclPage"
+            android:screenOrientation="sensorPortrait"
+            android:label="OTTAWA SOFTBALL CRICKET LEAGUE"
+            android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".LikeUsPage" >
+        <activity android:name=".LikeUsPage"
+            android:screenOrientation="sensorPortrait"
+            android:label="FACEBOOK"
+            android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".CaptainsPage" >
+        <activity android:name=".CaptainsPage"
+            android:screenOrientation="sensorPortrait"
+            android:label="NEPEAN CC - EXECUTIVES"
+            android:theme="@style/AppTheme">
         </activity>
-        <activity android:name=".Sponsorsspage" >
+        <activity android:name=".Sponsorsspage"
+            android:screenOrientation="sensorPortrait"
+            android:label="NEPEAN CC - SPONSORS"
+            android:theme="@style/AppTheme">
         </activity>
 
     </application>

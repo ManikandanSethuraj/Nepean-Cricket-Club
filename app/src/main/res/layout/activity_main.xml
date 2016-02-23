@@ -11,7 +11,7 @@
 
         <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
             android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorNepean" app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:background="@color/colornewNepean" app:popupTheme="@style/AppTheme.PopupOverlay"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
                 android:layout_gravity="center"
                 android:id="@+id/toolbar_title"
                 android:textColor="@color/colorTitle"
-                android:background="@color/colorNepean"
+                android:background="@color/colornewNepean"
                 android:textSize="30dp"
                 android:textStyle="italic"
                 />
