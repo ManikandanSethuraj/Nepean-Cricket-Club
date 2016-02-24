@@ -16,6 +16,6 @@
         android:id="@+id/galleryGridView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:numColumns="3"
+        android:numColumns="2"
         />
 </RelativeLayout>
