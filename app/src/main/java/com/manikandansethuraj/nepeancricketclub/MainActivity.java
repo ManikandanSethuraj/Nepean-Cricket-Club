@@ -2,12 +2,14 @@ package com.manikandansethuraj.nepeancricketclub;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
 
 public class MainActivity extends TabActivity {
+
 
     TabHost tabhost;
     @Override
@@ -41,6 +43,8 @@ public class MainActivity extends TabActivity {
         tabhost.addTab(tabMore);
 
 
+
+
     }
 
     @Override
@@ -64,4 +68,13 @@ public class MainActivity extends TabActivity {
 
         return super.onOptionsItemSelected(item);
     }
-}
+
+    private class DownloadData extends AsyncTask<String, Void, String> {
+
+
+        @Override
+        protected String doInBackground(String... params) {
+            return null;
+        }
+    }
+    }

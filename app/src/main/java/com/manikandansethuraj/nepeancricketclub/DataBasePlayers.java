@@ -12,6 +12,10 @@ import android.widget.Toast;
 /**
  * Created by ManikandanSethuraj on 2016-02-23.
  */
+
+
+// This is class where all the Players Database is created.
+    //
 public class DataBasePlayers {
 
     SqlDataCreateUpdate sqlDataCreateUpdate;
@@ -44,6 +48,75 @@ public class DataBasePlayers {
         return id;
     }
 
+    public int getNumberofPlayers(){
+        SQLiteDatabase sqLiteDatabase = sqlDataCreateUpdate.getWritableDatabase();
+        String[] columns = {SqlDataCreateUpdate.UID};
+        Cursor cursor = sqLiteDatabase.query(SqlDataCreateUpdate.TABLE_NAME, columns, null, null, null, null, null);
+        int id = cursor.getCount();
+        cursor.close();
+        return id;
+    }
+
+
+    public String getSinglePlayerPageDetails(String Last_Name){
+        SQLiteDatabase sqLiteDatabase = sqlDataCreateUpdate.getWritableDatabase();
+        String whereitem = SqlDataCreateUpdate.LAST_NAME+" =?";
+        String[] columns = { SqlDataCreateUpdate.FIRST_NAME, SqlDataCreateUpdate.TYPE_PLAYER, SqlDataCreateUpdate.FIVE_NOMATCHES,
+        SqlDataCreateUpdate.FIVE_INN, SqlDataCreateUpdate.FIVE_RUNS, SqlDataCreateUpdate.FIVE_WKS, SqlDataCreateUpdate.FOUR_NOMATCHES,
+        SqlDataCreateUpdate.FOUR_INN, SqlDataCreateUpdate.FOUR_RUNS, SqlDataCreateUpdate.FOUR_WKS, SqlDataCreateUpdate.TWO_NOMATCHES,
+        SqlDataCreateUpdate.TWO_INN, SqlDataCreateUpdate.TWO_RUNS, SqlDataCreateUpdate.TWO_WKS};
+
+        Cursor cursor = sqLiteDatabase.query(SqlDataCreateUpdate.TABLE_NAME, columns, whereitem, new String[] {Last_Name}, null, null, null);
+        StringBuffer stringBuffer = new StringBuffer();
+        cursor.moveToNext();
+        int id = cursor.getColumnCount();
+        String playerFirstName = cursor.getString(0);
+        String playerType = cursor.getString(1);
+        int fiveMatches = cursor.getInt(2);
+        int fiveInns = cursor.getInt(3);
+        int fiveRuns = cursor.getInt(4);
+        int fiveWkts = cursor.getInt(5);
+        int fourMatches = cursor.getInt(6);
+        int fourInns = cursor.getInt(7);
+        int fourRuns = cursor.getInt(8);
+        int fourWkts = cursor.getInt(9);
+        int twoMatches = cursor.getInt(10);
+        int twoInns = cursor.getInt(11);
+        int twoRuns = cursor.getInt(12);
+        int twoWkts = cursor.getInt(13);
+            stringBuffer.append(playerFirstName+" "+playerType+"!"+fiveMatches+"@"+fiveInns+
+            "#"+fiveRuns+"$"+fiveWkts+"%"+fourMatches+"^"+fourInns+"&"+fourRuns+"*"+fourWkts+
+            "("+twoMatches+")"+twoInns+"-"+twoRuns+"+"+twoWkts);
+        cursor.close();
+        return stringBuffer.toString();
+
+    }
+
+    public String getSinglePlayerDetail_Front(int id){
+        SQLiteDatabase sqLiteDatabase = sqlDataCreateUpdate.getWritableDatabase();
+        String[] columns = { SqlDataCreateUpdate.FIRST_NAME, SqlDataCreateUpdate.LAST_NAME, SqlDataCreateUpdate.TYPE_PLAYER};
+
+       // String id_item[] = "'"+id+"'";
+       String whereitem = SqlDataCreateUpdate.UID+" = "+id;
+        Cursor cursor = sqLiteDatabase.query(SqlDataCreateUpdate.TABLE_NAME, columns, whereitem, null, null, null, null);
+        StringBuffer stringBuffer = new StringBuffer();
+       // int count = cursor.getColumnCount();
+       // int countnum = cursor.getCount();
+       // int cumindex = cursor.getColumnIndex(SqlDataCreateUpdate.FIRST_NAME);
+       // String c = String.valueOf(count)+" "+String.valueOf(countnum)+" "+String.valueOf(cumindex);
+       // Log.d("da::::::",c);
+
+            cursor.moveToFirst();
+            String playerFirstname = cursor.getString(0);
+            String playerSecondname = cursor.getString(1);
+            String playertype = cursor.getString(2);
+            stringBuffer.append(playerFirstname+" "+playerSecondname+"@"+playertype);
+
+        cursor.close();
+        return stringBuffer.toString();
+
+    }
+
     public String getAllData(){
 
         SQLiteDatabase sqLiteDatabase = sqlDataCreateUpdate.getWritableDatabase();
@@ -57,6 +130,7 @@ public class DataBasePlayers {
             String cupass = cursor.getString(1);
             stringBuffer.append(cuname+" "+cupass+"\n");
         }
+        cursor.close();
         return stringBuffer.toString();
 
     }
@@ -103,11 +177,11 @@ public class DataBasePlayers {
             try {
                 db.execSQL(CREATE_TABLE);
                 Log.d("DB Created :", "DB created");
-                Toast.makeText(context,"CREATE",Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context,"CREATE",Toast.LENGTH_SHORT).show();
                 Log.d("DB CREATION :",context.toString());
             } catch (SQLException e) {
                 e.printStackTrace();
-                Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
                 Log.d("Error: ",e.toString());
 
             }
@@ -124,7 +198,7 @@ public class DataBasePlayers {
                     Log.d("DB Updated :", "DB created");
                 } catch (SQLException e) {
                     e.printStackTrace();
-                    Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();
 
                 }
 

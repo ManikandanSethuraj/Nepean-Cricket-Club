@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 public class GalleryPage extends AppCompatActivity {
 
@@ -142,6 +144,7 @@ public class GalleryPage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 //        gridView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -166,4 +169,39 @@ public class GalleryPage extends AppCompatActivity {
 //
 //        cursor = activity.getContentResolver().query(uri, projection, null, null, MediaStore.Images.Media.DATE_ADDED);
 //    }
+
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        GridView gridView = (GridView) findViewById(R.id.galleryGridView);
+
+        int count = gridView.getCount();
+        for (int i = 0; i < count; i++) {
+            ImageView v = (ImageView) gridView.getChildAt(i);
+            if (v != null) {
+                if (v.getDrawable() != null) v.getDrawable().setCallback(null);
+            }
+        }
+        Log.d("Grid View", "On Stop");
+
+        }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        int count = gridView.getCount();
+        for (int i = 0; i < count; i++) {
+            ImageView v = (ImageView) gridView.getChildAt(i);
+            if (v != null) {
+                if (v.getDrawable() != null) v.getDrawable().setCallback(null);
+            }
+        }
+        Log.d("Grid View","On Pause");
+
+    }
+
+
+
 }

@@ -27,7 +27,7 @@ public class CaptainsPage extends AppCompatActivity {
     }
 
     private void populateExectiveList(){
-        myExecutiveClass.add(new ExecutiveClass("Suthan Kuhanesan","PRESIDENT",R.drawable.suthan));
+        myExecutiveClass.add(new ExecutiveClass("Suthan Kuhanesan","PRESIDENT",R.drawable.suthanexec));
         myExecutiveClass.add(new ExecutiveClass("Kogilan Ravinthiran","VICE PRESIDENT",R.drawable.kogi));
         myExecutiveClass.add(new ExecutiveClass("Udhaykiran Rangineni", "SECRETARY", R.drawable.udhay));
         myExecutiveClass.add(new ExecutiveClass("Suthershan Sundarlingam", "TREASURER", R.drawable.suthershan));

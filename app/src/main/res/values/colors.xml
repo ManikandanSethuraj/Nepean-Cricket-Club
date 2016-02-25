@@ -5,9 +5,9 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorNepean">#01579B</color>
     <color name="colorTitle">#FFFFFF</color>
-    <color name="colorBackGround">#90A4AE</color>
+    <color name="colorBackGround">#7bd1fc</color>
     <color name="colorMoreName">#ff0004</color>
     <color name="colorGalleryBGM">#060000</color>
     <color name="colorAnotherTitle">#e23456</color>
-    <color name="colornewNepean">#18c3c6</color>
+    <color name="colornewNepean">#03537b</color>
 </resources>

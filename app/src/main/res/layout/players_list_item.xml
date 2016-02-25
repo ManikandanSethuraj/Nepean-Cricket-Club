@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@color/colorBackGround">
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
-<ImageView
-    android:id="@+id/execImageViewListitem"
-    android:layout_width="100dp"
-    android:layout_height="120dp"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentTop="true"
-    android:adjustViewBounds="true"
+    <ImageView
+        android:id="@+id/playersImageViewListitem"
+        android:layout_width="100dp"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
 
-    android:scaleType="fitXY"
-    android:src="@drawable/player_icon"/>
+        android:scaleType="fitXY"
+        android:src="@drawable/player_icon"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -21,9 +20,10 @@
         android:textStyle="bold"
         android:textSize="18sp"
         android:textAllCaps="true"
-        android:text="Large Text"
         android:layout_marginTop="4dp"
-        android:id="@+id/execNametextView"
+        android:layout_marginRight="2dp"
+        android:text="Large Text"
+        android:id="@+id/playersNametextView"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -35,11 +35,11 @@
         android:text="Medium Text"
         android:textStyle="bold"
         android:layout_marginBottom="4dp"
+        android:layout_marginLeft="4dp"
         android:textColorHighlight="@color/colorAnotherTitle"
-        android:id="@+id/execPositiontextView"
-        android:layout_alignBottom="@+id/execImageViewListitem"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
+        android:id="@+id/playerspositiontextView"
+        android:layout_alignBottom="@+id/playersImageViewListitem"
+        android:layout_alignRight="@+id/playersNametextView"
+        android:layout_alignEnd="@+id/playersNametextView" />
 
 </RelativeLayout>

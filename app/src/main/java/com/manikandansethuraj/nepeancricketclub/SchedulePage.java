@@ -1,6 +1,5 @@
 package com.manikandansethuraj.nepeancricketclub;
 
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -13,11 +12,11 @@ public class SchedulePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule_page);
 
-        pdfImageView = (ImageView) findViewById(R.id.pdfImageView);
+       // pdfImageView = (ImageView) findViewById(R.id.pdfImageView);
 
-        int pdf_width = pdfImageView.getWidth();
-        int pdf_height = pdfImageView.getHeight();
-        Bitmap bitmap = Bitmap.createBitmap(pdf_width, pdf_height, Bitmap.Config.ARGB_4444);
+       // int pdf_width = pdfImageView.getWidth();
+       // int pdf_height = pdfImageView.getHeight();
+       // Bitmap bitmap = Bitmap.createBitmap(pdf_width, pdf_height, Bitmap.Config.ARGB_4444);
        // File pdfFile = new File(String.valueOf(R.drawable.manicv));
 
 //        try {
