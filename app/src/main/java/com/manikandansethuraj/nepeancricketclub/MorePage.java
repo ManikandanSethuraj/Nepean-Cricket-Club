@@ -8,11 +8,13 @@ import android.widget.ImageButton;
 
 public class MorePage extends AppCompatActivity implements View.OnClickListener {
 
+
     ImageButton scheduleButton, playersButton, galleryButton, likeusButton, captainsButton, sponsorsButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_page);
+
 
         scheduleButton = (ImageButton) findViewById(R.id.btnSchedule);
         playersButton = (ImageButton) findViewById(R.id.btnPlayers);

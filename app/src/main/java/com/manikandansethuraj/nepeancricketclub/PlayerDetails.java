@@ -3,6 +3,7 @@ package com.manikandansethuraj.nepeancricketclub;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class PlayerDetails extends AppCompatActivity {
@@ -117,6 +118,54 @@ public class PlayerDetails extends AppCompatActivity {
                 break;
 
         }
+
+        String First_Name = FullDetails.substring(0,FullDetails.indexOf(" "));
+        String PlayerType = FullDetails.substring(FullDetails.indexOf(" ")+1,FullDetails.indexOf("!"));
+        String FiveMatches = FullDetails.substring(FullDetails.indexOf("!")+1,FullDetails.indexOf("@"));
+        String FiveInns = FullDetails.substring(FullDetails.indexOf("@")+1,FullDetails.indexOf("#"));
+        String FiveRuns = FullDetails.substring(FullDetails.indexOf("#")+1,FullDetails.indexOf("$"));
+        String FiveWkts = FullDetails.substring(FullDetails.indexOf("$")+1,FullDetails.indexOf("%"));
+        String FourMatches = FullDetails.substring(FullDetails.indexOf("%")+1,FullDetails.indexOf("^"));
+        String FourInns = FullDetails.substring(FullDetails.indexOf("^")+1,FullDetails.indexOf("&"));
+        String FourRuns = FullDetails.substring(FullDetails.indexOf("&")+1,FullDetails.indexOf("*"));
+        String FourWkts = FullDetails.substring(FullDetails.indexOf("*")+1,FullDetails.indexOf("<"));
+        String TwoMatches = FullDetails.substring(FullDetails.indexOf("<")+1,FullDetails.indexOf(">"));
+        String TwoInns = FullDetails.substring(FullDetails.indexOf(">")+1,FullDetails.indexOf("?"));
+        String TwoRuns = FullDetails.substring(FullDetails.indexOf("?")+1,FullDetails.indexOf("+"));
+        String TwoWkts = FullDetails.substring(FullDetails.indexOf("+")+1);
+
+        String FullName = First_Name+" "+Name;
+        TextView textName = (TextView) findViewById(R.id.PlayerName);
+        TextView textType = (TextView) findViewById(R.id.PlayerType);
+        TextView textmat50 = (TextView) findViewById(R.id.matches50);
+        TextView textmat40 = (TextView) findViewById(R.id.matches40);
+        TextView textmat20 = (TextView) findViewById(R.id.matches20);
+        TextView textinn50 = (TextView) findViewById(R.id.inn50);
+        TextView textinn40 = (TextView) findViewById(R.id.inn40);
+        TextView textinn20 = (TextView) findViewById(R.id.inn20);
+        TextView textruns50 = (TextView) findViewById(R.id.runs50);
+        TextView textruns40 = (TextView) findViewById(R.id.runs40);
+        TextView textruns20 = (TextView) findViewById(R.id.runs20);
+        TextView textwkts50 = (TextView) findViewById(R.id.wkts50);
+        TextView textwkts40 = (TextView) findViewById(R.id.wkts40);
+        TextView textwkts20 = (TextView) findViewById(R.id.wkts20);
+
+        textName.setText(FullName);
+        textType.setText(PlayerType);
+        textmat50.setText(FiveMatches);
+        textmat40.setText(FourMatches);
+        textmat20.setText(TwoMatches);
+        textinn50.setText(FiveInns);
+        textinn40.setText(FourInns);
+        textinn20.setText(TwoInns);
+        textruns50.setText(FiveRuns);
+        textruns40.setText(FourRuns);
+        textruns20.setText(TwoRuns);
+        textwkts50.setText(FiveWkts);
+        textwkts40.setText(FourWkts);
+        textwkts20.setText(TwoWkts);
+
+
 
     }
 }

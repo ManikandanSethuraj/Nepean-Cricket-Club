@@ -86,7 +86,7 @@ public class DataBasePlayers {
         int twoWkts = cursor.getInt(13);
             stringBuffer.append(playerFirstName+" "+playerType+"!"+fiveMatches+"@"+fiveInns+
             "#"+fiveRuns+"$"+fiveWkts+"%"+fourMatches+"^"+fourInns+"&"+fourRuns+"*"+fourWkts+
-            "("+twoMatches+")"+twoInns+"-"+twoRuns+"+"+twoWkts);
+            "<"+twoMatches+">"+twoInns+"?"+twoRuns+"+"+twoWkts);
         cursor.close();
         return stringBuffer.toString();
 

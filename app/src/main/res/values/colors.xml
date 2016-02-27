@@ -10,4 +10,7 @@
     <color name="colorGalleryBGM">#060000</color>
     <color name="colorAnotherTitle">#e23456</color>
     <color name="colornewNepean">#03537b</color>
+    <color name="colorPlayerStat">#06f2c3</color>
+    <color name="colorPlayermatch">#039376</color>
+    <color name="colorPlayer">#1ca186</color>
 </resources>
