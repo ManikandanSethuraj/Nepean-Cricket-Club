@@ -5,12 +5,14 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".FbApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcherncc"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/app_id"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -29,11 +31,7 @@
             android:label="Nepean Cricket Club"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".HomePage" >
         </activity>
@@ -55,7 +53,7 @@
         </activity>
         <activity
             android:name=".PlayersPage"
-            android:label="NEPEAN CC - PLAYERS"
+            android:label="PLAYERS"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme" >
         </activity>
@@ -67,24 +65,41 @@
         </activity>
         <activity
             android:name=".LikeUsPage"
-            android:label="FACEBOOK"
+            android:label="CONSTITUTION"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".CaptainsPage"
-            android:label="NEPEAN CC - EXECUTIVES"
+            android:label="EXECUTIVES"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name=".Sponsorsspage"
-            android:label="NEPEAN CC - SPONSORS"
+            android:label="SPONSORS"
             android:screenOrientation="sensorPortrait"
             android:theme="@style/AppTheme" >
         </activity>
-        <activity android:name=".PlayerDetails" >
+        <activity android:name=".PlayerDetails"
+            android:label="PLAYER STATISTICS"
+            android:screenOrientation="sensorPortrait">
         </activity>
+        <activity android:name=".Splashone"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
     </application>
 
 </manifest>

@@ -12,5 +12,7 @@
     <color name="colornewNepean">#03537b</color>
     <color name="colorPlayerStat">#06f2c3</color>
     <color name="colorPlayermatch">#039376</color>
-    <color name="colorPlayer">#1ca186</color>
+    <color name="colorPlayer">#24ccaa</color>
+    <color name="colursplashname">#1e1ee6</color>
+    <color name="colorliveBGM">#12caa5</color>
 </resources>

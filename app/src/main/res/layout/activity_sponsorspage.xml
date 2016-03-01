@@ -94,7 +94,7 @@
             android:id="@+id/btnPlayTrailers"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            
+
             android:background="@drawable/eye"
             android:layout_weight="0.5"
             android:layout_gravity="center"

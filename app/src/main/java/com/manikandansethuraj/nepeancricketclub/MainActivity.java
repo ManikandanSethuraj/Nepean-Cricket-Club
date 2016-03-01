@@ -2,6 +2,8 @@ package com.manikandansethuraj.nepeancricketclub;
 
 import android.app.TabActivity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,6 +22,8 @@ public class MainActivity extends TabActivity {
         //tabhost = (TabHost) findViewById(android.R.id.tabhost);
 
         tabhost = getTabHost();
+
+
 
         TabHost.TabSpec tabHome = tabhost.newTabSpec("home");
         tabHome.setIndicator("Home", getResources().getDrawable(R.drawable.home));
@@ -43,6 +47,7 @@ public class MainActivity extends TabActivity {
         tabhost.addTab(tabMore);
 
 
+        tabhost.getTabWidget().getChildAt(tabhost.getCurrentTab()).getBackground().setColorFilter(Color.RED, PorterDuff.Mode.MULTIPLY);
 
 
     }

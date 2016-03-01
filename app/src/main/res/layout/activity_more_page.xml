@@ -36,7 +36,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SCHEDULE"
+                android:text="FIXTURES"
                 android:gravity="center"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -134,7 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_weight="0.5"
                 android:id="@+id/btnLikeUs"
-                android:src="@drawable/fb_icon"
+                android:src="@drawable/constitution"
                 android:layout_gravity="center"
                 android:layout_marginBottom="25dp"
                 android:layout_marginLeft="25dp"
@@ -148,7 +148,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Like Us !!"
+                android:text="CONSTITUTION"
                 android:gravity="center"
                 android:textSize="20dp"
                 android:textStyle="bold"

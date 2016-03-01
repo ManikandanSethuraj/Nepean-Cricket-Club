@@ -3,18 +3,46 @@ package com.manikandansethuraj.nepeancricketclub;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
+
+import com.facebook.FacebookSdk;
+import com.facebook.share.widget.LikeView;
 
 public class HomePage extends AppCompatActivity {
 
 
-    DataBasePlayers sqlDatabasePlayers;  // Defining Players DataBase for insertion purposes
+    DataBasePlayers sqlDatabasePlayers;    // Defining Players DataBase for insertion purposes
+    TextView groundDescription, clubDescription;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
+        FacebookSdk.sdkInitialize(getApplicationContext());
+
+        LikeView likeView = (LikeView) findViewById(R.id.likeView);
+        likeView.setLikeViewStyle(LikeView.Style.STANDARD);
+        likeView.setAuxiliaryViewPosition(LikeView.AuxiliaryViewPosition.INLINE);
+        likeView.setObjectIdAndType("https://www.facebook.com/Nepean-Cricket-Club-150173385134852/", LikeView.ObjectType.PAGE);
+
         sqlDatabasePlayers = new DataBasePlayers(this);// calling the Players databasePage
         DownloadData dw = new DownloadData();
+        clubDescription = (TextView) findViewById(R.id.clubDescription);
+        groundDescription = (TextView) findViewById(R.id.groundDescription);
         dw.execute();
+        String groundDescrip = "5 Lynda Lane Park,"+"\n"+"Ottawa, Ontario,"+"\n"+"Canada."+"\n"+"K1H 5P3.";
+        String clubDescrip = "Nepean Cricket Club alias NCC was founded in January 2008. " +
+                "It was founded by a group of cricket enthusiasts to develop a sustainable and a successful" +
+                " cricket community environment, which allows cricketers to develop and progress " +
+                "to the highest level. Cricket is the most popular game among the commonwealth nations " +
+                "and it has already shown a steady progress in Canada. " +
+                "NCC is a full member of OVCC (Ottawa Valley Cricket Council) and have won the Citizen Division in 2013. "+
+                "NCC has debuted more than 100 players in OVCC league and has almost 35 active players every year participating " +
+                "in the Ottawa League.";
+        groundDescription.setText(groundDescrip);
+        clubDescription.setText(clubDescrip);
+
 
        // insertdata();   // insertion of players is done in this home page by calling insertdata
     }

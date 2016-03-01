@@ -9,13 +9,13 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_splash_screen"
     tools:context="com.manikandansethuraj.nepeancricketclub.SplashScreen"
-    android:background="@color/colorPrimary">
+    android:background="@color/colursplashname">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/logo"
+        android:src="@drawable/logonew"
         android:layout_gravity="center" />
 
 </RelativeLayout>

@@ -26,6 +26,7 @@
 
 
             />
+
     </LinearLayout>
     <ScrollView android:layout_width="match_parent"
         android:layout_weight="3"
@@ -43,33 +44,70 @@
             android:layout_weight="3"
             android:orientation="horizontal">
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="2">
+                android:orientation="vertical"
+                android:layout_weight="5">
 
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
                     android:src="@drawable/ic_launcherncc"
                     android:layout_gravity="center_horizontal"
+                    android:layout_weight="4"
                     />
+                <com.facebook.share.widget.LikeView
+                    android:id="@+id/likeView"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="3">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="3"
+                android:padding="2dp"
+                >
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Home Ground:"
+                    android:textColor="@color/colornewNepean"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="5dp"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="textMultiLine"
-                    android:maxLines="10"
-                    />
+                    android:id="@+id/groundHome"
+                    android:text="Lynda Lane - 2"
+                    android:textColor="@color/colorGalleryBGM"
+                    android:layout_marginTop="2dp"
+                    android:textSize="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address:"
+                    android:layout_marginTop="4dp"
+                    android:textColor="@color/colornewNepean"
+                    android:textSize="22dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:id="@+id/groundDescription"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/colorGalleryBGM"/>
 
             </LinearLayout>
+
+
 
 
 
@@ -79,15 +117,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4">
+            android:layout_weight="4"
+            android:background="@drawable/club_descrip"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="wrap_content"
+          <TextView
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:textColor="@color/colorGalleryBGM"
+              android:textSize="24dp"
+              android:layout_margin="3dp"
+              android:text="Club Description :"/>
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcherncc"
-                android:layout_marginLeft="5dp"
-                />
-
+                android:id="@+id/clubDescription"
+                android:maxLines="20"
+                android:layout_margin="3dp"
+                android:textColor="@color/colorGalleryBGM"/>
 
         </LinearLayout>
 

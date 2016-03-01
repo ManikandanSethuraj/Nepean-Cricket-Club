@@ -3,9 +3,9 @@
     android:shape="rectangle"
     android:thickness="16dp"
     >
-    <solid android:color="#ffffff" />
+    <solid android:color="@color/colorPlayer" />
 
-    <stroke android:color="@color/colorPrimaryDark" />
+    <stroke android:color="@color/colorAnotherTitle" />
 
 
     <corners android:bottomLeftRadius="4dp"

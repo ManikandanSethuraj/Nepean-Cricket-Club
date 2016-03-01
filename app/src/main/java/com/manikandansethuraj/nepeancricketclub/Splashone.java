@@ -1,18 +1,29 @@
 package com.manikandansethuraj.nepeancricketclub;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.VideoView;
 
-public class SplashScreen extends AppCompatActivity {
+public class Splashone extends AppCompatActivity {
 
+    VideoView video;
     protected boolean active = true;
-    protected int splashTime = 1000;
-
+    protected int splashTime = 10000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash_screen);
+        setContentView(R.layout.activity_splashone);
+
+        video = (VideoView) findViewById(R.id.videoView);
+        String path = "android.resource://" + getPackageName() + "/" + R.raw.johnson;
+        video.setVideoURI(Uri.parse(path));
+        video.start();
+        video.requestFocus();
+
+
+
         Thread splashTread = new Thread() {
             @Override
             public void run() {
@@ -28,16 +39,15 @@ public class SplashScreen extends AppCompatActivity {
 
                 } finally {
 
-                    startActivity(new Intent(SplashScreen.this,
-                            MainActivity.class));
+                    startActivity(new Intent(Splashone.this,
+                            SplashScreen.class));
                     finish();
                 }
             };
         };
         splashTread.start();
+
+
+
     }
-
-
-
-
 }
