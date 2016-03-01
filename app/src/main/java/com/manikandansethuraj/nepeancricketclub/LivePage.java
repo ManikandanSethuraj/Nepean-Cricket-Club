@@ -1,6 +1,8 @@
 package com.manikandansethuraj.nepeancricketclub;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -10,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,8 +35,30 @@ public class LivePage extends AppCompatActivity {
         listApps = (ListView) findViewById(R.id.xmlListView);
         // setSupportActionBar(toolbar);
 
+        AlertDialog alertDialog = new AlertDialog.Builder(
+                LivePage.this).create();
 
-        Toast.makeText(LivePage.this, "Swipe to Load Scores", Toast.LENGTH_LONG).show();
+        // Setting Dialog Title
+        alertDialog.setTitle("Alert !!!");
+
+        // Setting Dialog Message
+        alertDialog.setMessage("Swipe to Load & Refresh Scores.");
+
+        // Setting Icon to Dialog
+        alertDialog.setIcon(R.drawable.alert);
+
+        // Setting OK Button
+        alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // Write your code here to execute after dialog closed
+               // Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Showing Alert Message
+        alertDialog.show();
+
+       // Toast.makeText(LivePage.this, "Swipe to Load Scores", Toast.LENGTH_LONG).show();
 
 
 

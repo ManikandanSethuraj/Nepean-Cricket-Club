@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class PlayerDetails extends AppCompatActivity {
 
@@ -28,7 +27,7 @@ public class PlayerDetails extends AppCompatActivity {
     public void getDetailsofPlayer(String Name){
         ImageView image = (ImageView) findViewById(R.id.singlePlayerIcon);
         String FullDetails = sqlDatabasePlayers.getSinglePlayerPageDetails(Name);
-        Toast.makeText(PlayerDetails.this,FullDetails, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(PlayerDetails.this,FullDetails, Toast.LENGTH_SHORT).show();
 
         switch (Name){
 
@@ -112,6 +111,18 @@ public class PlayerDetails extends AppCompatActivity {
                 break;
             case "Vilvarajah":
                 image.setImageResource(R.drawable.dharmi);
+                break;
+            case "Sethuraj":
+                image.setImageResource(R.drawable.mani);
+                break;
+            case "Sivakumar":
+                image.setImageResource(R.drawable.mayuran);
+                break;
+            case "George":
+                image.setImageResource(R.drawable.vimal);
+                break;
+            case "Rajaswaran":
+                image.setImageResource(R.drawable.prakash);
                 break;
             default:
                image.setImageResource(R.drawable.player_icon);

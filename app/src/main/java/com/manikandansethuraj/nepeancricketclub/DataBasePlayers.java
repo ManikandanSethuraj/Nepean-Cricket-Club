@@ -7,7 +7,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.Toast;
 
 /**
  * Created by ManikandanSethuraj on 2016-02-23.
@@ -168,7 +167,7 @@ public class DataBasePlayers {
         public SqlDataCreateUpdate(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
             this.context = context;
-            Toast.makeText(context, "Cons", Toast.LENGTH_SHORT).show();
+
         }
 
         @Override
@@ -178,11 +177,11 @@ public class DataBasePlayers {
                 db.execSQL(CREATE_TABLE);
                 Log.d("DB Created :", "DB created");
               //  Toast.makeText(context,"CREATE",Toast.LENGTH_SHORT).show();
-                Log.d("DB CREATION :",context.toString());
+              //  Log.d("DB CREATION :",context.toString());
             } catch (SQLException e) {
                 e.printStackTrace();
               //  Toast.makeText(context,e.toString(),Toast.LENGTH_SHORT).show();
-                Log.d("Error: ",e.toString());
+              //  Log.d("Error: ",e.toString());
 
             }
         }
@@ -195,7 +194,7 @@ public class DataBasePlayers {
                 try {
                     db.execSQL(DROP_TABLE);
                     onCreate(db);
-                    Log.d("DB Updated :", "DB created");
+                //    Log.d("DB Updated :", "DB created");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 //    Toast.makeText(context, e.toString(), Toast.LENGTH_SHORT).show();

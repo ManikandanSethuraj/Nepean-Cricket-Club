@@ -135,6 +135,19 @@ public class PlayersPage extends AppCompatActivity {
                 case "Vilvarajah":
                     playerFrontPageClasses.add(new PlayerFrontPageClass(Player_NameFirst,Player_NameLast,Playe_Type,R.drawable.dharmi));
                     break;
+                case "Sethuraj":
+                    playerFrontPageClasses.add(new PlayerFrontPageClass(Player_NameFirst,Player_NameLast,Playe_Type,R.drawable.mani));
+                    break;
+                case "Rajaswaran":
+                    playerFrontPageClasses.add(new PlayerFrontPageClass(Player_NameFirst,Player_NameLast,Playe_Type,R.drawable.prakash));
+                    break;
+                case "George":
+                    playerFrontPageClasses.add(new PlayerFrontPageClass(Player_NameFirst,Player_NameLast,Playe_Type,R.drawable.vimal));
+                    break;
+                case "Sivakumar":
+                    playerFrontPageClasses.add(new PlayerFrontPageClass(Player_NameFirst,Player_NameLast,Playe_Type,R.drawable.mayuran));
+                    break;
+
                 default:
 
                     playerFrontPageClasses.add(new PlayerFrontPageClass(Player_NameFirst,Player_NameLast,Playe_Type,R.drawable.player_icon));

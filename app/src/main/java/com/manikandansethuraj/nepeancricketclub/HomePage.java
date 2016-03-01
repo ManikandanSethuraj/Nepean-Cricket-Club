@@ -37,7 +37,7 @@ public class HomePage extends AppCompatActivity {
                 " cricket community environment, which allows cricketers to develop and progress " +
                 "to the highest level. Cricket is the most popular game among the commonwealth nations " +
                 "and it has already shown a steady progress in Canada. " +
-                "NCC is a full member of OVCC (Ottawa Valley Cricket Council) and have won the Citizen Division in 2013. "+
+                "NCC is a full member of OVCC (Ottawa Valley Cricket Council) and has won the Citizen Division in 2013. "+
                 "NCC has debuted more than 100 players in OVCC league and has almost 35 active players every year participating " +
                 "in the Ottawa League.";
         groundDescription.setText(groundDescrip);
