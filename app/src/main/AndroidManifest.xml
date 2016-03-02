@@ -51,6 +51,7 @@
         </activity>
         <activity
             android:name=".SchedulePage"
+            android:label="FIXTURES"
             android:screenOrientation="sensorPortrait" >
         </activity>
         <activity
