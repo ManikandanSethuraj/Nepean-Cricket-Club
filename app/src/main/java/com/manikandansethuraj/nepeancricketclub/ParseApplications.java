@@ -4,8 +4,6 @@ package com.manikandansethuraj.nepeancricketclub;
  * Created by ManikandanSethuraj on 2016-02-21.
  */
 
-import android.util.Log;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -90,8 +88,8 @@ public class ParseApplications {
         }
 
         for (Application app : applications){
-            Log.d("ParseApplications", "***********************");
-            Log.d("ParseApplications", "Name : " + app.getTitle());
+          //  Log.d("ParseApplications", "***********************");
+          //  Log.d("ParseApplications", "Name : " + app.getTitle());
 
         }
         return true;

@@ -2,12 +2,14 @@ package com.manikandansethuraj.nepeancricketclub;
 
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -45,51 +47,97 @@ public class LivePage extends AppCompatActivity {
         alertDialog.setMessage("Swipe to Load & Refresh Scores.");
 
         // Setting Icon to Dialog
-        alertDialog.setIcon(R.drawable.alert);
+       // alertDialog.setIcon(R.drawable.alert);
 
         // Setting OK Button
         alertDialog.setButton("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                // Write your code here to execute after dialog closed
-               // Toast.makeText(getApplicationContext(), "You clicked on OK", Toast.LENGTH_SHORT).show();
+
             }
         });
 
         // Showing Alert Message
         alertDialog.show();
 
-       // Toast.makeText(LivePage.this, "Swipe to Load Scores", Toast.LENGTH_LONG).show();
+
+
+
+          if (isInternetAvailable()){
+              swipeRefreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+                  @Override
+                  public void onRefresh() {
+
+                      refreshcontent();
+
+                  }
+
+                  private void refreshcontent()
+                  {
+                      DownloadData downloadData = new DownloadData();
+                      downloadData.execute("http://static.cricinfo.com/rss/livescores.xml");
+                      ParseApplications parseApplications = new ParseApplications(mFileContents);
+                      parseApplications.process();
+                      ArrayAdapter<Application> arrayAdapter = new ArrayAdapter<Application>(
+                              LivePage.this, R.layout.livepage_list_item, parseApplications.getApplications());
+                      listApps.setAdapter(arrayAdapter);
+                      swipeRefreshView.setRefreshing(false);
+                  }
+
+              });
+          } else
+          {
+              AlertDialog alertConnection = new AlertDialog.Builder(
+                      LivePage.this).create();
+
+              // Setting Dialog Title
+              alertConnection.setTitle("Check Connectivity !!");
+
+              // Setting Dialog Message
+              alertConnection.setMessage("No Internet, No Fun !!");
+
+              // Setting Icon to Dialog
+              // alertDialog.setIcon(R.drawable.alert);
+
+              // Setting OK Button
+              alertConnection.setButton("OK", new DialogInterface.OnClickListener() {
+                  public void onClick(DialogInterface dialog, int which) {
+
+                  }
+              });
+
+              // Showing Alert Message
+              alertConnection.show();
+          }
 
 
 
 
 
-        swipeRefreshView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
 
-                refreshcontent();
 
-            }
 
-            private void refreshcontent()
+
+    }
+
+    public boolean isInternetAvailable() {
+        ConnectivityManager conMgr =  (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        {
+            NetworkInfo netInfo = conMgr.getActiveNetworkInfo();
+
+            if (netInfo == null)
             {
-                DownloadData downloadData = new DownloadData();
-                downloadData.execute("http://static.cricinfo.com/rss/livescores.xml");
-                ParseApplications parseApplications = new ParseApplications(mFileContents);
-                parseApplications.process();
-                ArrayAdapter<Application> arrayAdapter = new ArrayAdapter<Application>(
-                        LivePage.this, R.layout.livepage_list_item, parseApplications.getApplications());
-                listApps.setAdapter(arrayAdapter);
-                swipeRefreshView.setRefreshing(false);
+
+                return false;
+
+            }
+            else
+            {
+                return true;
+
             }
 
-        });
-
-
-
-
-
+        }
     }
 
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -130,6 +178,10 @@ public class LivePage extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void onResume(){
+        super.onResume();
+    }
+
 
     private class DownloadData extends AsyncTask<String, Void, String> {
 
@@ -138,16 +190,16 @@ public class LivePage extends AppCompatActivity {
         protected String doInBackground(String... params) {
             mFileContents = downloadXMLFile(params[0]);
             if (mFileContents == null){
-                Log.d("DownloadData", "Error downloading");
+              //  Log.d("DownloadData", "Error downloading");
             }
-            Log.d("DownloadData", "The Values of mFiles: " + mFileContents);
+          //  Log.d("DownloadData", "The Values of mFiles: " + mFileContents);
             return mFileContents;
         }
 
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            Log.d("DownloadData", "Result was : " + result);
+          //  Log.d("DownloadData", "Result was : " + result);
 
         }
 
@@ -157,7 +209,7 @@ public class LivePage extends AppCompatActivity {
                 URL url = new URL(urlPath);
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 int response = connection.getResponseCode();
-                Log.d("DownloadData", "The response code was" + response);
+            //    Log.d("DownloadData", "The response code was" + response);
                 InputStream is = connection.getInputStream();
                 InputStreamReader isr = new InputStreamReader(is);
 
@@ -165,7 +217,7 @@ public class LivePage extends AppCompatActivity {
                 char[] inputBuffer = new char[500];
                 while(true) {
                     charRead = isr.read(inputBuffer);
-                    Log.d("DownloadData", "The Char Read: " + charRead);
+              //      Log.d("DownloadData", "The Char Read: " + charRead);
                     if (charRead <= 0)
                     {
                         break;
@@ -178,10 +230,10 @@ public class LivePage extends AppCompatActivity {
                 return tempBuffer.toString();
 
             }catch (IOException e){
-                Log.d("DownloadData","IO Exception reading data: " + e.getMessage());
+              //  Log.d("DownloadData","IO Exception reading data: " + e.getMessage());
                 e.printStackTrace();
             }catch (SecurityException e){
-                Log.d("DownloadData","Security Exception. Needs Permission? " + e.getMessage());
+              //  Log.d("DownloadData","Security Exception. Needs Permission? " + e.getMessage());
             }
             return null;
         }
